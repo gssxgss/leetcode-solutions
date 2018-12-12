@@ -31,6 +31,3 @@ class Solution:
                 stack[index] = current_char
                 index += 1
         return not index
-
-
-print(Solution().isValid(']'))
