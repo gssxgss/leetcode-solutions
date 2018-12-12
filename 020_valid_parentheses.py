@@ -12,20 +12,33 @@ class Solution:
         """
         if not s:
             return True
-        if len(s) % 2:
-            return False
         ref = {')': '(', ']': '[', '}': '{'}
-        stack = ''
+        stack = Stack(len(s))
         for i in range(len(s)):
-            symbol = s[i]
-            if symbol in ref:
-                if not stack or stack[-1] != ref[symbol]:
+            current_char = s[i]
+            if current_char in ref:
+                last_char = stack.pop()
+                if not last_char or last_char != ref[current_char]:
                     return False
-                else:
-                    stack = stack[:-1]
             else:
-                stack += s[i]
-        return not stack
+                stack.push(current_char)
+        return not stack.index
 
 
-print(Solution().isValid('(('))
+class Stack:
+    def __init__(self, size):
+        self.s = [None] * size
+        self.index = 0
+
+    def push(self, item):
+        self.s[self.index] = item
+        self.index += 1
+
+    def pop(self):
+        if not self.index:
+            return None
+        self.index -= 1
+        return self.s[self.index]
+
+
+print(Solution().isValid(''))
