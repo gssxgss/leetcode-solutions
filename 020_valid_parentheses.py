@@ -13,32 +13,24 @@ class Solution:
         if not s:
             return True
         ref = {')': '(', ']': '[', '}': '{'}
-        stack = Stack(len(s))
+        stack_len = len(s) // 2
+        stack = [None] * stack_len
+        index = 0
         for i in range(len(s)):
             current_char = s[i]
             if current_char in ref:
-                last_char = stack.pop()
+                if not index:
+                    return False
+                index -= 1
+                last_char = stack[index]
                 if not last_char or last_char != ref[current_char]:
                     return False
             else:
-                stack.push(current_char)
-        return not stack.index
+                if index > stack_len - 1:
+                    return False
+                stack[index] = current_char
+                index += 1
+        return not index
 
 
-class Stack:
-    def __init__(self, size):
-        self.s = [None] * size
-        self.index = 0
-
-    def push(self, item):
-        self.s[self.index] = item
-        self.index += 1
-
-    def pop(self):
-        if not self.index:
-            return None
-        self.index -= 1
-        return self.s[self.index]
-
-
-print(Solution().isValid(''))
+print(Solution().isValid(']'))
