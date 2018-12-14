@@ -8,6 +8,7 @@ class TrieNode:
         self.finish = False
 
     def add_word(self, value):
+        # TODO make it recursion
         if value in self.children:
             node = self.children[value]
         else:
