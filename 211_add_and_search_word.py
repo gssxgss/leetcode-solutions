@@ -7,7 +7,7 @@ class TrieNode:
         self.children = {}
         self.finish = False
 
-    def addChild(self, value):
+    def add_word(self, value):
         if value in self.children:
             node = self.children[value]
         else:
@@ -58,14 +58,14 @@ class WordDictionary:
         node = self.root
         l = len(word)
         for i, c in enumerate(word):
-            node = node.addChild(c)
+            node = node.add_word(c)
             if i + 1 == l:
                 node.finish = True
 
     def search(self, word):
         """
         Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter.
-        :type word: str
+        :type word: strq
         :rtype: bool
         """
         if not word:
