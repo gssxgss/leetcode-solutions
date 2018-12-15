@@ -1,4 +1,5 @@
 // https://leetcode.com/problems/add-and-search-word-data-structure-design/
+
 package solutions;
 
 import java.util.HashMap;
