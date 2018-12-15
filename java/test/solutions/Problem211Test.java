@@ -1,6 +1,10 @@
+package solutions;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import solutions.Problem211.WordDictionary;
 
 class Problem211Test {
     @Test
