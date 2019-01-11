@@ -2,8 +2,6 @@
 
 package solutions;
 
-import java.util.Arrays;
-
 public class Problem053 {
     /**
      * Get the Max Sum of in the Array
